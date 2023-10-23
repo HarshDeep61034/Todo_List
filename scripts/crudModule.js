@@ -1,11 +1,4 @@
-let taskArray = [{
-	title: 'make project',
-	description: 'bhai yo description hai',
-	duedate: -14,
-	tag: '#shopping',
-	subtasks: ['lelo', 'kaddu', 'loki', 'tori'],
-	listname: 'personal'
-}];
+let taskArray = [];
 
 class Task {
 	constructor(title, description, duedate, tag, subtasks, listname) {
@@ -18,13 +11,15 @@ class Task {
 	}
 }
 
-const mytask = new Task("make project", "bhai yo description hai", 20 - 11 - 23, "#shopping", ["lelo", "kaddu", "loki", "tori"], "personal");
+function createTask(value) {
+	const obj = new Task(value);
+	taskArray.push(obj);
+	console.log(taskArray);
+}
+
+function deleteTask(index) {
+	taskArray.splice(index, 1);
+}
 
 
-const yourtask = new Task("msdfssdf", "bhZSFsfdsdai", 20 / 3 / 24, "#ssasda", ["lelo", "kaddu", "loki", "tori"]);
-
-taskArray.push(mytask);
-taskArray.push(yourtask);
-console.log(taskArray[1].title);
-
-export { taskArray, Task }
+export { taskArray, createTask, deleteTask }
